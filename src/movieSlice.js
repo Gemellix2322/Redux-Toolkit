@@ -25,11 +25,10 @@ const movieSlice = createSlice({
         },
         changeMovie: (state, action) => {
             const { id, name } = action.payload;
-            const movieIndex = state.movies.findIndex(movie => movie.id === id);
 
-            if (movieIndex  !== -1) {
-                state.movies.id[movieIndex] = {
-                    ...state.movies[movieIndex],
+            if (id  !== -1) {
+                state.movies[id] = {
+                    ...state.movies[id],
                     name: name
                 }
             }

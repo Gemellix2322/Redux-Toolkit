@@ -12,7 +12,7 @@ const MovieChange = () => {
     const handleSaveData = () => {
         if (movieName) {
             dispatch(changeMovie({
-                id: id,
+                id: id - 1,
                 name: movieName
             }))
             navigate('/')
