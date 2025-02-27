@@ -22,9 +22,16 @@ const movieSlice = createSlice({
             state.movies = state.movies.filter(
                 (movie) => movie.id !== action.payload
             );  
+        },
+        changeMovie: (state, action) => {
+            const changedMovie = {
+                id: state.movies.id,
+                name: action.payload
+            }
+            state.movies.push(changedMovie)
         }
     }
 });
 
-export const { addMovie, removeMovie } = movieSlice.actions;
+export const { addMovie, removeMovie, changeMovie } = movieSlice.actions;
 export default movieSlice.reducer;
