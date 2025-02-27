@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeMovie } from "../movieSlice";
 import { useNavigate } from "react-router-dom";
@@ -8,12 +8,17 @@ export const MovieList = () => {
     const dispatch = useDispatch();
     const movies = useSelector((state) => state.movies.movies);
 
+    useEffect(() => {
+        console.log(movies)
+    })
+
     const handleRemoveMovie = (id) => {
         dispatch(removeMovie(id));
     };
 
-    const handleChangeMovie = () => {
-        navigate('/change')
+    const handleChangeMovie = (id) => {
+        navigate(`/change/${id}`)
+        console.log(movies);
     }
 
     return (

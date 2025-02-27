@@ -1,24 +1,33 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { changeMovie } from "../movieSlice";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const MovieChange = () => {
     const navigate = useNavigate();
-    const [changedMovie, setChangedMovie] = useState("");
+    const { id } = useParams();
+    const [movieName, setMovieName] = useState("");
     const dispatch = useDispatch();
 
     const handleSaveData = () => {
-        if (changedMovie) {
-            dispatch(changeMovie(changedMovie))
+        if (movieName) {
+            dispatch(changeMovie({
+                id: id,
+                name: movieName
+            }))
             navigate('/')
+            console.log("Changed movie", id, movieName);
         }
     }
 
     return (
         <>
-        <input onChange={(e) => setChangedMovie(e.target.value)} value={changedMovie}/>
-        <button onClick={() => handleSaveData(changedMovie)}>Save</button>
+            <input
+                onChange={(e) => setMovieName(e.target.value)}
+                value={movieName}
+                placeholder="Enter new movie name"
+            />
+            <button onClick={handleSaveData}>Save</button>
         </>
     )
 }
