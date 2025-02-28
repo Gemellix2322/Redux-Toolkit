@@ -1,6 +1,7 @@
 import { useState } from "react";
-import {addMovie} from '../movieSlice';
+import { addMovie } from '../movieSlice';
 import { useDispatch } from "react-redux";
+import { Button, TextField } from "@mui/material";
 
 export const MovieInput = () => {
     const [newMovie, setNewMovie] = useState("");
@@ -15,8 +16,8 @@ export const MovieInput = () => {
 
     return (
         <>
-            <input onChange={(e) => setNewMovie(e.target.value)} value={newMovie}/>
-            <button onClick={handleAddMovie}>Add Movie</button>
+            <TextField label="New Movie" onChange={(e) => setNewMovie(e.target.value)} value={newMovie} />
+            <Button onClick={handleAddMovie}>Add Movie</Button>
         </>
     );
 }
