@@ -42,8 +42,8 @@ export const MovieList = () => {
                                 <TableCell align="center">{movies.id}</TableCell>
                                 <TableCell>{movies.name}</TableCell>
                                 <TableCell align="left" sx={{display: "flex", gap: 2}}>
-                                    <Button startIcon={<DeleteIcon />} variant="outlined" onClick={handleRemoveMovie}>Delete Movie</Button>
-                                    <Button startIcon={<CreateIcon />} variant="outlined" onClick={handleChangeMovie}>Change Movie</Button>
+                                    <Button startIcon={<DeleteIcon />} variant="outlined" onClick={() => handleRemoveMovie(movies.id)}>Delete Movie</Button>
+                                    <Button startIcon={<CreateIcon />} variant="outlined" onClick={() => handleChangeMovie(movies.id)}>Change Movie</Button>
                                 </TableCell>
                             </TableRow>
                         ))}
